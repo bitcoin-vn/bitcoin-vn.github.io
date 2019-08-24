@@ -1,0 +1,33 @@
+@media (min-width:769px) {
+    #tv-chatwidget-f1090 div:nth-child(1) {
+        height: calc(100vh - 170px) !important;
+        width: calc(100vw - 267px) !important;
+    }
+
+    #tv-chatwidget-f1090 div:nth-child(1) div:nth-child(1) {
+        height: calc(100vh - 170px) !important;
+        width: calc(100vw - 267px) !important;
+    }
+
+    #tv-chatwidget-f1090 div:nth-child(1) div:nth-child(1) iframe {
+        height: calc(100vh - 170px) !important;
+        width: calc(100vw - 267px) !important;
+    }
+}
+
+@media (max-width:768px) {
+    #tv-chatwidget-f1090 div:nth-child(1) {
+        height: calc(100vh - 200px) !important;
+        width: calc(100vw - 15px) !important;
+    }
+
+    #tv-chatwidget-f1090 div:nth-child(1) div:nth-child(1) {
+        height: calc(100vh - 200px) !important;
+        width: calc(100vw - 15px) !important;
+    }
+
+    #tv-chatwidget-f1090 div:nth-child(1) div:nth-child(1) iframe {
+        height: calc(100vh - 200px) !important;
+        width: calc(100vw - 15px) !important;
+    }
+}
