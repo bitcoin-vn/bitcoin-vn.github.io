@@ -410,6 +410,9 @@ p {
 	.full-chart .choose-maket {
 		font-size: 10px;
 	}
+	.plotly-custom iframe {
+		height: calc(100vh - 270px)!important
+	}
 }
 
 @media (min-width:769px) {
@@ -417,6 +420,9 @@ p {
 		height: calc(100vh - 190px)!important
 	}
 	.full-chart .multi-chart .tradingview-widget-container iframe {
+		height: calc(100vh - 210px)!important
+	}
+	.plotly-custom iframe {
 		height: calc(100vh - 210px)!important
 	}
 }
