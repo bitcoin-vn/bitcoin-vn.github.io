@@ -18,8 +18,11 @@ myApp.controller('myController', function ($scope, $location) {
     }, {
         "id": 5,
         "name": "BNB/USD"
-    }, {
+    },  {
         "id": 6,
+        "name": "TRX/USD"
+    },  {
+        "id": 7,
         "name": "VND/USD"
     }];
 
