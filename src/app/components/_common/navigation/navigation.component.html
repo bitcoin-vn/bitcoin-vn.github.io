@@ -1,0 +1,65 @@
+<nav id="nav">
+  <h5 class="text-center mt-0 mb-0 alert alert-success" style="line-height: 53px;">
+    <a href="https://github.com/bitcoin-vn" target="_blank">
+      <span class="alert-success">Github.com/bitcoin-vn</span>
+    </a>
+  </h5>
+  <div class="pt-0 pb-3">
+    <div class="text-center" style="margin-top:6%">
+      <img itemprop="image" src="assets/images/bitcoin.png" alt="bitcoin vietnam" class="app-logo mb-1">
+      <h4 class="sidebarHead">
+        <strong itemprop="articleSection">Bitcoin Vietnam</strong>
+      </h4>
+    </div>
+    <div id="scroll-nav">
+      <h6 class="mt-2 p-2 alert-success text-center"><a target="_blank" class="request-btc" href="https://www.blockchain.com/btc/payment_request?address=1Q9A5jDbZ8M6xUM5bCDhzqrn1NAd5mzKs8&message=Donate+to+a+specific+project&amount=0.00035129">The Rise of Cryptocurrency in Vietnam</a></h6>
+      <ul class="ml-3 pb-5">
+        <li *ngFor="let row of menu" (mousedown)="overMusic()">
+          <a class="button" *ngIf="row.target === '_blank'" target="{{row.target}}" [href]="row.path" [routerLinkActive]="'maket-active'">{{row.name}}
+            <i *ngIf="row.icon" class="pi {{row.icon}}" style="font-size: 1em"></i>
+          </a>
+          <a class="button" *ngIf="row.target !== '_blank'" [routerLink]="row.path" [routerLinkActive]="row.path == '/' ? '' : 'maket-active'">{{row.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <audio id="btcVnAudio">
+      <source src="" type="audio/mpeg">
+    </audio>
+  </div>
+  <div class="alert alert-warning mb-0 fixFacebookAdd text-center">
+    <a href="javascript:void(0)" (click)="openModal(template1)">
+      <span class="alert-warning">QR Code URL</span>
+    </a> |
+    <a href="javascript:void(0)" (click)="openModal(template2)">
+      <span class="alert-warning">Donate</span>
+    </a>
+  </div>
+  <!-- Modal -->
+  <ng-template #template1>
+    <div class="modal-header">
+      <h4 class="modal-title text-info m-auto">Scan qr code to access website</h4>
+    </div>
+    <div class="modal-body text-center">
+      <pre class="m-0"><a target="_blank" class="text-dark" href="{{qrdata}}">{{qrdata}}</a></pre>
+      <qrcode [qrdata]="qrdata" [width]="250" [level]="'M'"></qrcode>
+    </div>
+    <div class="modal-footer m-auto">
+      <button pRipple type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+  </ng-template>
+
+  <!-- Modal -->
+  <ng-template #template2>
+    <div class="modal-header">
+      <h4 class="modal-title text-info m-auto">Donate to project</h4>
+    </div>
+    <div class="modal-body text-center">
+      <pre class="m-0 text-dark h6">Please Donate To Bitcoin Address</pre>
+      <pre class="m-0"><a target="_blank" class="text-dark" href="https://www.blockchain.com/btc/payment_request?address={{btcAddress}}&message=Donate+to+a+specific+project&amount=0.00035129">{{btcAddress}}</a></pre>
+      <img src="assets/images/qr-code-donate.png" width="200" />
+    </div>
+    <div class="modal-footer m-auto">
+      <button pRipple type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+  </ng-template>
+</nav>

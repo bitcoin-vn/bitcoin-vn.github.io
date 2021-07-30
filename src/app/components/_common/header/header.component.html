@@ -1,0 +1,17 @@
+<h2 class="text-center alert alert-success pt-3 pb-3 mt-0 mb-0" style="line-height: 44px;">
+  <a href="/">
+        <span class="alert-success">https://bitcoin-vn.github.io</span>
+    </a>
+</h2>
+<button id="menu-response" class="btn btn-outline-success d-none py-1" (click)="isShowHide = !isShowHide"><i class="pi pi-bars mt-1" style="font-size: 1.5em"></i></button>
+<div [hidden]="isShowHide" class="menu-collapse">
+  <h6 class="mt-2 p-2 alert-success text-center"><a target="blank_" class="request-btc" href="https://www.blockchain.com/btc/payment_request?address=1Q9A5jDbZ8M6xUM5bCDhzqrn1NAd5mzKs8&amp;message=Donate+to+a+specific+project&amp;amount=0.00035129">The Rise of Cryptocurrency in Vietnam</a></h6>
+  <ul class="ml-3 pb-5">
+    <li *ngFor="let row of menu" (mousedown)="overMusic()">
+      <a class="button" *ngIf="row.target === '_blank'" target="{{row.target}}" [href]="row.path" [routerLinkActive]="'maket-active'">{{row.name}}
+        <i *ngIf="row.icon" class="pi {{row.icon}}" style="font-size: 1em"></i>
+      </a>
+      <a class="button" *ngIf="row.target !== '_blank'" [routerLink]="row.path" [routerLinkActive]="row.path == '/' ? '' : 'maket-active'">{{row.name}}</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,57 @@
+:host {
+  .menu-right {
+    position: fixed;
+    top: 0px;
+    right: -1px;
+    background: #26262b; // background-image: url('src/assets/images/unnamed.png');
+    // background-repeat: repeat;
+    border-left: 1px solid #5a5a5a;
+    height: 100vh;
+    width: 0px;
+    padding-top: 80px;
+    .scroll-setting {
+      overflow: auto;
+      height: calc(100vh - 180px);
+      position: relative;
+    }
+    .scroll-setting::-webkit-scrollbar-track {
+      background: rgb(155, 155, 155);
+      border: 2px solid transparent;
+      background-clip: content-box
+    }
+    .scroll-setting::-webkit-scrollbar {
+      width: 5px
+    }
+    .scroll-setting::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #309110;
+      border: 1px solid #309110
+    }
+  }
+  .show-hide {
+    right: 0;
+    width: 350px;
+    transition: width 0.1s;
+  }
+  .btn-show-hide {
+    position: absolute;
+    left: -50px;
+    background: #0373CB;
+    top: 32%;
+    color: #FFF;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .ui-helper-clearfix:hover {
+    background-color: #0373CB;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .pi-cog {
+    vertical-align: middle;
+  }
+}

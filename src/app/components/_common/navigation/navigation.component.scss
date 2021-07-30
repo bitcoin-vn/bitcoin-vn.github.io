@@ -1,0 +1,26 @@
+#scroll-nav {
+  overflow: auto;
+  height: calc(100vh - 280px);
+}
+
+#scroll-nav::-webkit-scrollbar-track {
+  background: rgb(155, 155, 155);
+  border: 2px solid transparent;
+  background-clip: content-box
+}
+
+#scroll-nav::-webkit-scrollbar {
+  width: 5px
+}
+
+#scroll-nav::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #309110;
+  border: 1px solid #309110
+}
+
+#nav {
+  h4 {
+    color: #F0B90B;
+  }
+}

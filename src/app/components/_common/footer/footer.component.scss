@@ -1,0 +1,15 @@
+:host {
+  .tradingview-widget-copyright {
+    font-size: 13px !important;
+    line-height: 32px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    font-family: 'Trebuchet MS', Arial, sans-serif !important;
+    color: #9db2bd !important;
+    .blue-text {
+      color: #2196f3 !important;
+    }
+    z-index: -1;
+    position: relative;
+  }
+}

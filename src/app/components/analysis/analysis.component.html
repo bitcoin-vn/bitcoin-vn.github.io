@@ -1,0 +1,26 @@
+<section>
+  <!-- TradingView Widget END -->
+  <div id="widget-cryptoprices-fix" [hidden]="!flags.showTicketTab"></div>
+  <div id="widget-cryptoprices" [hidden]="!flags.showTicket"></div>
+  <!-- TradingView Widget END -->
+
+  <div class="parent" [ngStyle]="{'height': 'calc(100vh - '+ flags.heightChart + 'px)'}">
+    <div class="div1"> <div id="widget-analysis1"></div></div>
+    <div class="div2"> <div id="widget-analysis2"></div></div>
+    <div class="div3"> <div id="widget-analysis3"></div></div>
+  </div>
+
+  <app-menu-right
+    [isSymbol]="false"
+    [isIndicator]="false"
+    (onChangeLocale)="onChangeLocale($event)" 
+    (onChangeTicket)="onChangeTicket($event)"
+    (onChangeTicketTab)="onChangeTicketTab($event)"
+    (onChangeAnalysis)="onChangeAnalysis($event)"
+    (onChangeTickerChecked)="this.flags.showTicket = $event; onChangeTickerChecked()"
+    (onChangeTickerTabChecked)="this.flags.showTicketTab = $event; onChangeTickerChecked()">
+  </app-menu-right>
+</section>
+<footer>
+  <app-footer></app-footer>
+</footer>

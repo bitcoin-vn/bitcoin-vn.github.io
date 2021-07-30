@@ -1,0 +1,11 @@
+:host {
+  .bg-convert {
+    background: #77889959;
+    color: #a4ca11; // colorResult: '#00ff21';
+    border-radius: 10px;
+  }
+  .border-left-radius {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+}

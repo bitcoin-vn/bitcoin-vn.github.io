@@ -1,0 +1,64 @@
+<section>
+    <!-- TradingView Widget END -->
+    <div id="widget-cryptoprices-fix" [hidden]="!flags.showTicketTab"></div>
+    <div id="widget-cryptoprices" [hidden]="!flags.showTicket"></div>
+    <!-- TradingView Widget END -->
+  
+    <br/>
+    <div class="shadow col-md-8 d-block m-auto bg-convert">
+      <div class="p-4">
+        <h2>Convert {{selLeftCoin.value}} to {{selRightCoin.value}}</h2>
+        <form [formGroup]="formGroup" (submit)="onCalculate($event)">
+          <div class="row mt-3 mb-3">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="deposit"><span class="text-warning">{{selLeftCoin.label}}</span></label>
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <select class="input-group-text border-left-radius" (change)="onLeftSelected($event.target.value)">
+                      <option *ngFor="let r of fiats" [value]="r.value" [selected]="r.value === selLeftCoin.value">{{r.value}}</option>
+                    </select>
+                  </div>
+                  <input class="form-control border-green" type="text" currencyMask formControlName="currencyL" [options]="{ prefix: '', thousands: '.', decimal: ',', precision: 10 }"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="deposit"><span class="text-warning">{{selRightCoin.label}}</span></label>
+                <div class="input-group">
+                  <input class="form-control border-green" type="text" currencyMask formControlName="currencyR" [options]="{ prefix: '', thousands: '.', decimal: ',', precision: 10 }"
+                  />
+                  <div class="input-group-append">
+                    <select class="input-group-text" (change)="onRightSelected($event.target.value)">
+                      <option *ngFor="let r of fiats" [value]="r.value" [selected]="r.value === selRightCoin.value">{{r.value}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text-center">
+            <button type="submit" class="mx-2" [attr.disabled]="isSubmit ? '' : null" pButton icon="pi {{isSubmit ? 'pi-spin pi-spinner' :  'pi-check'}}"
+              label="Calculate"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <app-menu-right
+      [isSymbol]="false"
+      [isAnalysis]="false"
+      [isIndicator]="false"
+      (onChangeLocale)="onChangeLocale($event)"
+      (onChangeTicket)="onChangeTicket($event)"
+      (onChangeTicketTab)="onChangeTicketTab($event)"
+      (onChangeTickerChecked)="this.flags.showTicket = $event; onChangeTickerChecked()"
+      (onChangeTickerTabChecked)="this.flags.showTicketTab = $event; onChangeTickerChecked()">
+    </app-menu-right>
+</section>
+<footer>
+    <app-footer></app-footer>
+</footer>
+  
