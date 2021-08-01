@@ -23,80 +23,17 @@
           </div>
         </ng-template>
       </p-dropdown>
-      <ng-template [ngIf]="isSymbol">
-        <span class="mt-3 mb-2 d-block">Symbol: <span class="text-warning">{{selectedSymbol}}</span></span>
-        <p-dropdown [options]="symbol" [(ngModel)]="selectedSymbol" (onChange)="onSymbol($event)" [virtualScroll]="true" [style]="{'width':'100%'}"
-          filter="true">
-          <ng-template let-item pTemplate="selectedItem">
-            <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/icon/{{item.value.split('/')[0].toLowerCase()}}.png"
-              onerror="this.src='https://www.freepngimg.com/thumb/blocked/3-2-blocked-png-picture-thumb.png'" style="width:24px;vertical-align:middle"
-            />
-            <span style="vertical-align:middle; margin-left: .5em">{{item.label}} - {{item.value}}</span>
-          </ng-template>
-          <ng-template let-row pTemplate="item">
-            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-              <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/icon/{{row.value.split('/')[0].toLowerCase()}}.png"
-                onerror="this.src='https://www.freepngimg.com/thumb/blocked/3-2-blocked-png-picture-thumb.png'" style="width:24px;position:absolute;top:1px;left:5px"
-              />
-              <div style="font-size:14px;float:right;margin-top:4px">{{row.label}} - {{row.value}}</div>
-            </div>
-          </ng-template>
-        </p-dropdown>
-      </ng-template>
-      <!-- Show hide ticket -->
-      <ng-template [ngIf]="isTickerOnOff">
-        <div class="mt-3">
-          <p-inputSwitch [(ngModel)]="isTickerTabChecked" (onChange)="onTickerTabChecked($event)"></p-inputSwitch>
-          <img src="assets/images/ticker.png" alt="ticker" width="100%">
-        </div>
-        <div class="mt-3">
-          <p-inputSwitch [(ngModel)]="isTickerChecked" (onChange)="onTickerChecked($event)"></p-inputSwitch>
-          <img src="assets/images/ticker-tap.png" alt="ticker-tape" width="100%">
-        </div>
-      </ng-template>
       <!-- Config ticket -->
-      <ng-template [ngIf]="isTicker">
-        <span class="mt-3 mb-2 d-block">Ticker</span>
-        <p-multiSelect [options]="this.ticketsTab" (onChange)="onTicketTab($event)" [(ngModel)]="selectedTicketsTab" [showToggleAll]="true"
-          [virtualScroll]="true" [itemSize]="34" [filter]="true" [style]="{'width':'91%', 'position':'absolute'}"></p-multiSelect>
-      </ng-template>
-      <ng-template [ngIf]="isTickerTape">
-        <br/>
-        <span class="mt-3 mb-2 d-block">Ticker Tape<span class="text-warning"></span></span>
-        <p-multiSelect [options]="this.tickets" (onChange)="onTicket($event)" [(ngModel)]="selectedTickets" [showToggleAll]="true"
-          [virtualScroll]="true" [itemSize]="34" [filter]="true" [style]="{'width':'91%', 'position':'absolute'}"></p-multiSelect>
-      </ng-template>
-      <ng-template [ngIf]="isIndicator">
-        <br/>
-        <span class="mt-4 mb-2 d-block">Indicator</span>
-        <p-multiSelect [options]="this.indicators" (onChange)="onIndicator($event)" [styleClass]="'mb-4'" [(ngModel)]="selectedIndicators"
-          [showToggleAll]="true" [virtualScroll]="true" [itemSize]="34" [filter]="true" [style]="{'width':'91%', 'position':'absolute'}"></p-multiSelect>
-      </ng-template>
-      <ng-template [ngIf]="isAnalysis">
-        <br/>
-        <span class="mt-4 mb-2 d-block">Analysis</span>
-        <p-radioButton name="1" (onClick)="onAnalysis(1)" value="1" [(ngModel)]="selectedValueAnalysis" label="Gauge 01" [styleClass]="'ml-1'"></p-radioButton>
-        <p-radioButton name="1" (onClick)="onAnalysis(2)" value="2" [(ngModel)]="selectedValueAnalysis" label="Gauge 02" [styleClass]="'ml-1'"></p-radioButton>
-        <p-radioButton name="1" (onClick)="onAnalysis(3)" value="3" [(ngModel)]="selectedValueAnalysis" label="Gauge 03" [styleClass]="'ml-1'"></p-radioButton>
-        <br/>
-        <p-dropdown [options]="analysis" [(ngModel)]="selectedAnalysis" (onChange)="onAnalysisEnd($event)" [virtualScroll]="true" [styleClass]="'mt-3'" [style]="{'width':'100%'}"
-        filter="true">
-          <ng-template let-item pTemplate="selectedItem">
-            <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/icon/{{item.value.split('/')[0].toLowerCase()}}.png"
-              onerror="this.src='https://www.freepngimg.com/thumb/blocked/3-2-blocked-png-picture-thumb.png'" style="width:24px;vertical-align:middle"
-            />
-            <span style="vertical-align:middle; margin-left: .5em">{{item.label}} - {{item.value}}</span>
-          </ng-template>
-          <ng-template let-row pTemplate="item">
-            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-              <img src="https://raw.githubusercontent.com/atomiclabs/cryptocurrency-icons/master/32/icon/{{row.value.split('/')[0].toLowerCase()}}.png"
-                onerror="this.src='https://www.freepngimg.com/thumb/blocked/3-2-blocked-png-picture-thumb.png'" style="width:24px;position:absolute;top:1px;left:5px"
-              />
-              <div style="font-size:14px;float:right;margin-top:4px">{{row.label}} - {{row.value}}</div>
-            </div>
-          </ng-template>
-        </p-dropdown>
-      </ng-template>
+      <br/>
+      <span class="mt-3 mb-2 d-block">Ticker</span>
+      <p-multiSelect [options]="this.ticketsTab" (onChange)="onTicketTab($event)" [(ngModel)]="selectedTicketsTab" [showToggleAll]="true"
+        [virtualScroll]="true" [itemSize]="34" [filter]="true" [style]="{'width':'91%', 'position':'absolute'}"></p-multiSelect>
+      <br/>
+      <br/>
+      <span class="mt-3 mb-2 d-block">Ticker Tape<span class="text-warning"></span></span>
+      <p-multiSelect [options]="this.tickets" (onChange)="onTicket($event)" [(ngModel)]="selectedTickets" [showToggleAll]="true"
+        [virtualScroll]="true" [itemSize]="34" [filter]="true" [style]="{'width':'91%', 'position':'absolute'}"></p-multiSelect>
+      <br/>
       <ng-content></ng-content>
     </div>
   </div>

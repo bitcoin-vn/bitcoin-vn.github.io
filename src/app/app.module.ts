@@ -9,7 +9,6 @@ import { AppComponent } from './components/_root';
 import { FullLayoutComponent } from './components/_root/full-layout/full-layout.component';
 import { HeaderComponent } from './components/_common/header/header.component';
 import { ChartsComponent } from './components/charts/charts.component';
-import { AnalysisComponent } from './components/analysis/analysis.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { GoogleTrendsComponent } from './components/google-trends/google-trends.component';
 import { CryptocurrencyComponent } from './components/cryptocurrency/cryptocurrency.component';
@@ -52,7 +51,6 @@ import { QRCodeGeneratorComponent } from './components/qrcode-generator/qrcode-g
     FullLayoutComponent,
     HeaderComponent,
     ChartsComponent,
-    AnalysisComponent,
     ChatRoomComponent,
     GoogleTrendsComponent,
     CryptocurrencyComponent,

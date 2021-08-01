@@ -12,12 +12,6 @@ export const Menu = [
         icon: ""
     },
     {
-        name: 'Analysis',
-        path: '/analysis',
-        target: '',
-        icon: ""
-    },
-    {
         name: 'Chat Room',
         path: '/chat-room',
         target: '',

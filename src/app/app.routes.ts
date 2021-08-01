@@ -6,7 +6,6 @@ import { HomeComponent } from "src/app/components/home/home.component";
 import { ChartsComponent } from "src/app/components/charts/charts.component";
 import { ChatRoomComponent } from "src/app/components/chat-room/chat-room.component";
 import { FullLayoutComponent } from "src/app/components/_root/full-layout/full-layout.component";
-import { AnalysisComponent } from "src/app/components/analysis/analysis.component";
 import { ConvertBtcToAltcoinComponent } from "src/app/components/convert-btc-to-altcoin/convert-btc-to-altcoin.component";
 import { ConvertBtcToUsdComponent } from "src/app/components/convert-btc-to-usd/convert-btc-to-usd.component";
 import { ConvertUsdToBtcComponent } from "src/app/components/convert-usd-to-btc/convert-usd-to-btc.component";
@@ -29,9 +28,6 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent
-      }, {
-        path: 'analysis',
-        component: AnalysisComponent
       }, {
         path: 'charts',
         component: ChartsComponent

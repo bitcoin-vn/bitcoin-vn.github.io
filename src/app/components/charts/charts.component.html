@@ -5,11 +5,7 @@
   <div id="widget-chart" [ngStyle]="{'height': 'calc(100vh - '+ flags.heightChart + 'px)'}"></div>
   <!-- TradingView Widget END -->
   <app-menu-right
-    [isAnalysis]="false"
     (onChangeLocale)="onChangeLocale($event)" 
-    (onChangeSymbol)="onChangeSymbol($event)" 
-    (onChangeTicket)="onChangeTicket($event)"
-    (onChangeTicketTab)="onChangeTicketTab($event)"
     (onChangeIndicator)="onChangeIndicator($event)"
     (onChangeTickerChecked)="this.flags.showTicket = $event; onChangeTickerChecked()"
     (onChangeTickerTabChecked)="this.flags.showTicketTab = $event; onChangeTickerChecked()">

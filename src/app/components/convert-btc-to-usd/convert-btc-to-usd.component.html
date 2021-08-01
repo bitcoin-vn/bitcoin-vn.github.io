@@ -47,15 +47,7 @@
       </form>
     </div>
   </div>
-  <app-menu-right
-    [isSymbol]="false"
-    [isAnalysis]="false"
-    [isIndicator]="false"
-    (onChangeLocale)="onChangeLocale($event)"
-    (onChangeTicket)="onChangeTicket($event)"
-    (onChangeTicketTab)="onChangeTicketTab($event)"
-    (onChangeTickerChecked)="this.flags.showTicket = $event; onChangeTickerChecked()"
-    (onChangeTickerTabChecked)="this.flags.showTicketTab = $event; onChangeTickerChecked()">
+  <app-menu-right (onChangeLocale)="onChangeLocale($event)" >
   </app-menu-right>
 </section>
 <footer>

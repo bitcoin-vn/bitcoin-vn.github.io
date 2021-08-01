@@ -23,36 +23,17 @@ declare const Intl: any;
 })
 export class MenuRightComponent implements OnInit {
   @Output() public onChangeLocale = new EventEmitter();
-  @Output() public onChangeSymbol = new EventEmitter();
   @Output() public onChangeTicket = new EventEmitter();
   @Output() public onChangeTicketTab = new EventEmitter();
-  @Output() public onChangeTickerChecked = new EventEmitter();
-  @Output() public onChangeTickerTabChecked = new EventEmitter();
   @Output() public onChangeIndicator = new EventEmitter();
-  @Output() public onChangeAnalysis = new EventEmitter();
-
-  @Input() public isSymbol = true;
-  @Input() public isTickerOnOff = true;
-  @Input() public isTicker = true;
-  @Input() public isTickerTape = true;
-  @Input() public isIndicator = true;
-  @Input() public isAnalysis = true;
 
   public showHide = false;
   public piSpinner = 'default';
 
   public selectedLocale: string;
   public locales: any[] = FullLocales;
-  public selectedSymbol: string;
-  public symbol: any[] = Cryptos;
-  public isTickerChecked: boolean = true;
-  public isTickerTabChecked: boolean = true;
   public indicators: any[] = Indicators;
   public selectedIndicators: any;
-  public selectedAnalysis: string;
-  public analysis: any[] = Cryptos;
-  public selectedValueAnalysis = 1;
-
 
   public selectedTickets: any[];
   public tickets: any[] = [];
@@ -70,12 +51,6 @@ export class MenuRightComponent implements OnInit {
     this.onChangeLocale.emit(locale.value);
   }
 
-  public onSymbol(e) {
-    localStorage.setItem('symbol_btc_vn', e.value);
-    this.selectedTickets = e.value;
-    this.onChangeSymbol.emit(e);
-  }
-
   public onTicket(e) {
     this.selectedTickets = e.value;
     const data = JSON.stringify(e.value.map(m => ({ title: m, proName: `BINANCE:${m.replace('/', '')}` })));
@@ -90,59 +65,11 @@ export class MenuRightComponent implements OnInit {
     this.onChangeTicketTab.emit(e);
   }
 
-  public onTickerChecked(e): void {
-    this.onChangeTickerChecked.emit(e.checked);
-  }
-
-  public onTickerTabChecked(e): void {
-    this.onChangeTickerTabChecked.emit(e.checked);
-  }
-
   public onIndicator(e): void {
     this.selectedIndicators = e.value;
     const data = JSON.stringify(e.value.map(m => ({ id: m })));
     localStorage.setItem('indicator_btc_vn', data);
     this.onChangeIndicator.emit(e.checked);
-  }
-
-  public onAnalysis(e): void {
-    this.selectedValueAnalysis = e;
-    const store = JSON.parse(localStorage.getItem('analysis_btc_vn'));
-    switch (e) {
-      case 1:
-        this.selectedAnalysis = store[0]; // binding
-        break;
-      case 2:
-        this.selectedAnalysis = store[1];; // binding
-        break;
-      case 3:
-        this.selectedAnalysis = store[2]; // binding
-        break;
-      default:
-        break;
-    }
-  }
-
-  public onAnalysisEnd(e): void {
-    const store = JSON.parse(localStorage.getItem('analysis_btc_vn'));
-    switch (this.selectedValueAnalysis) {
-      case 1:
-        console.log(`[${e.value}, ${store[1]}, ${store[2]}]`);
-        localStorage.setItem('analysis_btc_vn', JSON.stringify([e.value, store[1], store[2]]));
-        break;
-      case 2:
-        console.log(`[${store[0]}, ${e.value}, ${store[2]}]`);
-        localStorage.setItem('analysis_btc_vn', JSON.stringify([store[0], e.value, store[2]]));
-        break;
-      case 3:
-        console.log(`[${store[0]}, ${store[1]}, ${e.value}]`);
-        localStorage.setItem('analysis_btc_vn', JSON.stringify([store[0], store[1], e.value]));
-        break;
-      default:
-        break;
-    }
-
-    this.onChangeAnalysis.emit([e, this.selectedValueAnalysis]);
   }
 
   public onReset(): void {
@@ -154,11 +81,9 @@ export class MenuRightComponent implements OnInit {
 
   ngOnInit() {
     this.initialLocale();
-    this.initialSymbol();
     this.initialTicket();
     this.initialTicketTab();
     this.initialIndiactor();
-    this.initialAnalysis();
   }
 
   private initialLocale(): void {
@@ -169,16 +94,6 @@ export class MenuRightComponent implements OnInit {
       localStorage.setItem('locale_btc_vn', locale && locale.value);
     } else {
       this.selectedLocale = localeActive;
-    }
-  }
-
-  private initialSymbol(): void {
-    const localeSymbol = localStorage.getItem('symbol_btc_vn');
-    if (localeSymbol === undefined || localeSymbol === null) {
-      this.selectedSymbol = 'BTC/USDT';
-      localStorage.setItem('symbol_btc_vn', this.selectedSymbol);
-    } else {
-      this.selectedSymbol = localeSymbol;
     }
   }
 
@@ -211,17 +126,6 @@ export class MenuRightComponent implements OnInit {
       localStorage.setItem('indicator_btc_vn', JSON.stringify(configWidgetChart.config.studies));
     } else {
       this.selectedIndicators = JSON.parse(indicatorActive).map(e => (e.id));
-    }
-  }
-
-  private initialAnalysis(): void {
-    const localeAnalysis = localStorage.getItem('analysis_btc_vn');
-    if (localeAnalysis === undefined || localeAnalysis === null) {
-      const data = ['BTC/USDT', 'TRX/USDT', 'WRX/USDT'];
-      this.selectedAnalysis = data[0];
-      localStorage.setItem('analysis_btc_vn', JSON.stringify(data));
-    } else {
-      this.selectedAnalysis = JSON.parse(localeAnalysis)[0];
     }
   }
 }
